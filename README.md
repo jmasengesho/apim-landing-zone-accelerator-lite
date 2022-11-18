@@ -12,7 +12,8 @@ This repo is a fork of [Enterprise-Scale-APIM](https://github.com/Azure/apim-lan
 ## What was added:
 
 - An additional Private DNS Zone **configuration.azure-api.net** to support Self-Hosted Gateways
-- Ability to deploy into an existing Virtual Network (WIP)
+- Ability to deploy into an existing Virtual Network (In progress)
+- Ability to specify the size of the Vnet
 
 ## How to deploy in your environment
 
@@ -49,9 +50,8 @@ This repo is a fork of [Enterprise-Scale-APIM](https://github.com/Azure/apim-lan
    To deploy resources in an Azure Subscription, we will use the pipeline under .github/workflows/es-apim.yaml
 
          
-         #clone the repository
+         #clone or fork the repository
          git clone https://github.com/jmasengeshomsft/apim-landing-zone-accelerator-lite.git
-
 
 
      Navigate to the Bicep folder by running the following script from the repo home directory
@@ -86,7 +86,7 @@ This repo is a fork of [Enterprise-Scale-APIM](https://github.com/Azure/apim-lan
              "tenantId": "value"
           }
 
-      - In your GitHub repository Settings, create an Actions secreted named "**AZURE_CREDENTIALS**". This is used in the pipeline for **azure/lgoin@1**
+      - In your GitHub repository Settings, create an Action secret named "**AZURE_CREDENTIALS**" and populate it with the json object above. This is used in the pipeline for **azure/lgoin@1**
          ```azcli
            - uses: azure/login@v1
            with:
